@@ -1,29 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> Admin Area</title>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/style.css">
+    @include('include.admin_head')
 </head>
 <body class="bg-light"style="">
 <!--HEADER-->
-<header id="main-header" class="py-3 bg-primary text-white "style="text-align: end">
-    <div class="container">
-        <div class="d-flex flex-row justify-content-between">
-        <span>
-            <a href="../index.html " class="mb-2" style="text-decoration: none; color:#1b1e21;"> <h5 class=" ">بازگشت به صفحه اصلی سایت</h5> </a>
-            <a href="../index.html " class="mt-3" style="text-decoration: none;color:#fff4f4;""> <h6 class=" ">خروج</h6> </a>
-        </span>
-            <h2 class="rtl"> داشبورد  <i class="fa fa-gear"></i></h2>
-        </div>
-
-
-    </div>
-</header>
+@include('include.admin_header')
 
 <!--POSTS-->
 <section id="posts">
@@ -36,7 +18,7 @@
                         <h1 class="display-4">
                             <i class="fa fa-pencil"></i>
                         </h1>
-                        <a href="Posts.html" class="btn btn-outline-light btn-lg">مشاهده</a>
+                        <a href="{{route('admin-posts')}}" class="btn btn-outline-light btn-lg">مشاهده</a>
                     </div>
                 </div>
             </div>
@@ -47,7 +29,7 @@
                         <h1 class="display-4">
                             <i class="fa fa-folder-open-o"></i>
                         </h1>
-                        <a href="SlideManager.html" class="btn btn-outline-light btn-lg">مشاهده</a>
+                        <a href="{{route('admin-sliders')}}" class="btn btn-outline-light btn-lg">مشاهده</a>
                     </div>
                 </div>
 
@@ -59,7 +41,7 @@
                         <h1 class="display-4">
                             <i class="fa fa-product-hunt"></i>
                         </h1>
-                        <a href="Products.html" class="btn btn-outline-light btn-lg">مشاهده</a>
+                        <a href="{{route('admin-products')}}" class="btn btn-outline-light btn-lg">مشاهده</a>
                     </div>
                 </div>
             </div>
@@ -70,72 +52,80 @@
 <section id="changePass" class="mb-5">
     <div class="container" style="direction: rtl !important">
         <hr>
+
+
         <div class="d-flex flex-row-reverse justify-content-end  ">
             <h4 class="flex-item text-dark"> تغییر کلمه عبور</h4>
         </div>
 
         <div class="row">
             <div class="col-md-6 mt-3">
-                <form>
+                <form action="{{route('admin-change-password')}}" method="post">
+                    @csrf
                     <div class="form-group row  ">
                         <label  class="col-sm-4 col-form-label" >رمز فعلی</label>
                         <div class="col-sm-8">
-                            <input type="password" class="form-control" >
+                            <input name="old_password" type="password" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group row  ">
                         <label  class="col-sm-4 col-form-label" >رمز جدید</label>
                         <div class="col-sm-8">
-                            <input type="password" class="form-control" >
+                            <input name="new_password1" type="password" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group row  ">
                         <label  class="col-sm-4 col-form-label" >تکرار رمز جدید</label>
                         <div class="col-sm-8">
-                            <input type="password" class="form-control" >
+                            <input name="new_password2" type="password" class="form-control" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mr-auto">
-                            <a href="#" class="btn btn-success w-50">تایید</a>
+                            <button type="submit" class="btn btn-success w-50">تایید</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+
+
+
         <div class="d-flex flex-row-reverse justify-content-end ">
             <h4 class="flex-item text-dark"> تغییر اطلاعات سایت</h4>
         </div>
         <div class="row">
             <div class="col-md-6 mt-3">
-                <form>
+
+                <form action="{{route('admin-change-site-info')}}" method="post">
+                    @csrf
                     <div class="form-group row  ">
                         <label class="col-sm-4 col-form-label" >آدرس :</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" >
+                            <input name="address" type="text" class="form-control" value="{{$address}}" required>
                         </div>
                     </div>
                     <div class="form-group row  ">
                         <label class="col-sm-4 col-form-label" > شماره تلفن ثابت :</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" >
+                            <input name="phone" type="text" class="form-control" value="{{$phone}}" required>
                         </div>
                     </div>
                     <div class="form-group row  ">
                         <label class="col-sm-4 col-form-label" > شماره تلفن موبایل :</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" >
+                            <input name="mobile" type="text" class="form-control" value="{{$mobile}}" required>
                         </div>
                     </div>
                     <div class="form-group row  ">
                         <label class="col-sm-4 col-form-label" > ایمیل   :</label>
                         <div class="col-sm-8">
-                            <input type="text" class="form-control" >
+                            <input name="email" type="text" class="form-control" value="{{$email}}" required>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6 mr-auto">
-                            <a href="#" class="btn btn-success w-50">تایید</a>
+                            <button type="submit"  class="btn btn-success w-50">تایید</button>
                         </div>
                     </div>
                 </form>
@@ -146,8 +136,7 @@
     </div>
 </section>
 
-<script src="../js/jquery.min.js"></script>
-<script src="../js/popper.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+@include('include.scripts')
+
 </body>
 </html>

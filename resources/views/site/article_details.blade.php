@@ -35,12 +35,13 @@
 
 
 
+            @php($p_date = new \App\Http\Controllers\PersianDate())
             <div class="col-md-8 p-4" id="content">
                 <div class="container-content">
                     <img src="{{asset($post1->image_path)}}" alt="" class="img-fluid p-3">
                     <div class="d-flex flex-row justify-content-between p-3">
                         <h6 class="">
-                            {{$post1->created_at}}
+                            {{$p_date->to_date($post1->created_at, 'Y/m/d')}}
                         </h6>
                         <h3 class="p-3">
                             {{$post1->title}}

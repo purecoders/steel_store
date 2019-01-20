@@ -8,94 +8,96 @@
 
 <div style="overflow-x: hidden">
 
-  <!--TOP HEADER-->
+    <!--TOP HEADER-->
 @include('include.top_header')
 
-  <!--NAVIGATION SECTION-->
-  <nav class="navbar navbar-expand-lg  text-white" >
-        <form style="width: 600px; "  >
-          <div class="input-group" >
+<!--NAVIGATION SECTION-->
+    <nav class="navbar navbar-expand-lg  text-white" >
+        <form action="{{route('search')}}" method="post" style="width: 600px; "  >
+            @csrf
+            <div class="input-group" >
               <span class="">
                   <button class="btn btn-default " style="background-color:#540004 " type="submit">
                     <i class="fa fa-search "></i>
                  </button>
               </span>
-            <input type="text"  style="background-color: #540004" name="search" class=" text-white d-block" placeholder="جستجو براساس  نام و کد کالا..." id="search-button">
-          </div>
+                <input type="text"  style="background-color: #540004" name="text" class=" text-white d-block" placeholder="جستجو براساس  نام و کد کالا..." id="search-button">
+            </div>
         </form>
-    <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="fa fa-toggle-down" style="color: #ffffff"  id="toggle-icon"> </span>
-    </button>
-    <div class="collapse navbar-collapse " style="direction: rtl !important; " id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto " style="text-align: end">
-        <li class="nav-item active ">
-          <a class="nav-link  active" style="" href="#">خانه <span class="sr-only"></span></a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#prices">اجناس</a>
-        </li>
+        <button class="navbar-toggler " type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-toggle-down" style="color: #ffffff"  id="toggle-icon"> </span>
+        </button>
+        <div class="collapse navbar-collapse " style="direction: rtl !important; " id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto " style="text-align: end">
+                <li class="nav-item active ">
+                    <a class="nav-link  active" style="" href="#">خانه <span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#prices">اجناس</a>
+                </li>
 
-        <li class="nav-item ">
-          <a class="nav-link " href="#news-section">آخرین مطالب</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link " href="#location">آدرس ما</a>
-        </li>
-        <li class="nav-item ">
-          <a class="nav-link  " href="Calculation.html">محاسبه وزن</a>
-        </li>
-      </ul>
+                <li class="nav-item ">
+                    <a class="nav-link " href="#news-section">آخرین مطالب</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link " href="#location">آدرس ما</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link  " href="{{route('calc-page')}}">محاسبه وزن</a>
+                </li>
+            </ul>
 
-    </div>
-  </nav>
+        </div>
+    </nav>
 
-  <!-- SHOWCASE SLIDER -->
-  <section id="slider">
-    <div id="myCarousel" class="carousel slide" data-ride="carousel">
-      <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active  "></li>
-        <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+    <!-- SHOWCASE SLIDER -->
+    <section id="slider">
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active  "></li>
+                <li data-target="#myCarousel" data-slide-to="1" class=""></li>
 
-      </ol>
+            </ol>
 
 
 
-      <div class="carousel-inner">
-          @php($i=0)
-        @foreach($sliders as $slider)
-            @php($i++)
-        <div class="carousel-item carousel-image-1  @if($i==1) active @endif"  style="background:{{asset($slider->image_path)}}" >
-          <div class="container">
-            <div class="carousel-caption  text-right mb-5 p-4"style="background: #00000070;
+            <div class="carousel-inner">
+                @php($i=0)
+                @foreach($sliders as $slider)
+                    @php($i++)
+                    <div class="carousel-item carousel-image-1  @if($i==1) active @endif"  style="background:{{asset($slider->image_path)}}" >
+                        <img src="{{asset($slider->image_path)}}" style="height: 100%; width: 100%">
+                        <div class="container">
+                            <div class="carousel-caption  text-right mb-5 p-4"style="background: #00000070;
   color: white;
   border-radius: .25rem;">
-              <h1 class="display-3 text-center d-none d-sm-block" style="font-weight: 500;">{{$slider->title}}</h1>
-              <p class="lead pt-5 text-center "style="font-weight: 500;">{{$slider->description}}</p>
-                @if(!is_null($slider->url))
-                    <a href="{{$slider->url}}" class="btn btn-success btn-lg text-center" style="font-weight: 500">بیشتر</a>
-                @endif
+                                <h1 class="display-3 text-center d-none d-sm-block" style="font-weight: 500;">{{$slider->title}}</h1>
+                                <p class="lead pt-5 text-center "style="font-weight: 500;">{{$slider->description}}</p>
+                                @if(!is_null($slider->url))
+                                    <a href="{{$slider->url}}" class="btn btn-success btn-lg text-center" style="font-weight: 500">بیشتر</a>
+                                @endif
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+
+
+
+
             </div>
-          </div>
+
+
+
+            <a href="#myCarousel" data-slide="prev" class="carousel-control-prev">
+                <span class="carousel-control-prev-icon"></span>
+            </a>
+
+            <a href="#myCarousel" data-slide="next" class="carousel-control-next">
+                <span class="carousel-control-next-icon"></span>
+            </a>
         </div>
-          @endforeach
-
-
-
-
-
-      </div>
-
-
-
-      <a href="#myCarousel" data-slide="prev" class="carousel-control-prev">
-        <span class="carousel-control-prev-icon"></span>
-      </a>
-
-      <a href="#myCarousel" data-slide="next" class="carousel-control-next">
-        <span class="carousel-control-next-icon"></span>
-      </a>
-    </div>
-  </section>
+    </section>
 
 
 
@@ -103,85 +105,85 @@
 
 
 
-  <!-- PRICES TABLE -->
-  <section id="prices">
-    <div class="row ">
-      <div class="col-md-4 ml-auto mr-auto text-center p-3">
-        <h1 class="text-white" style="font-weight: 300;"> بخشی از کالاهای عرضه شده </h1>
-      </div>
-    </div>
-    <div class="container-fluid mb-5">
-      <table class="table-striped">
-        <thead class="text-white">
-        <tr>
-          <th>DIN</th>
-          <th>DIN سیمبل</th>
-          <th>نام مصطلح در بازار ایران</th>
-          <th>کاربرد</th>
-        </tr>
-        <thead>
-        <tbody>
-
-          @foreach($products as $product)
-              <tr>
-                  <td>{{$product->din}}</td>
-                  <td>{{$product->din_symbol}}</td>
-                  <td>{{$product->name}}</td>
-                  <td>{{$product->usage}}</td>
-
-              </tr>
-          @endforeach
-
-
-        </tbody>
-        </table>
-    </div>
-    <div class="d-flex flex-row ">
-      <a href="#location" id="fab" class="btn btn-success btn-lg ml-5 example-1" style="text-align: center;vertical-align: center;position: fixed;bottom: 0;z-index: 9000;margin-bottom: 5%;"><span class="fa fa-phone pt-2" id="logo"></span></a>
-    </div>
-    <div class="d-flex flex-row ml-5 mb-3">
-      <a href="All%20Products.html" class="btn btn-lg text-white bg-light text-dark " style=" font-weight: 300"> همه کالا ها </a>
-    </div>
-  </section>
-
-  <!--NEWS CARD -->
-  <section class="details-card mt-4 bg-light py-5" id="news-section">
-    <div class="row">
-      <div class="col-md-4 ml-auto mr-auto text-center pb-5">
-        <h1 class="text-dark" style="font-weight: 500;"> آخرین اخبار و مطالب  </h1>
-      </div>
-    </div>
-    <div class="container">
-      <div class="row mb-5">
-
-          @foreach($posts as $post)
-        <div class="col-md-4">
-          <div class="card-content">
-            <div class="card-img">
-              <img src="img/image3.jpg" alt="">
+    <!-- PRICES TABLE -->
+    <section id="prices">
+        <div class="row ">
+            <div class="col-md-4 ml-auto mr-auto text-center p-3">
+                <h1 class="text-white" style="font-weight: 300;"> بخشی از کالاهای عرضه شده </h1>
             </div>
-            <div class="card-desc">
-              <h3>{{$post->title}}</h3>
-              <p class="card-main-content">
-                  {{$post->content}}
-              </p>
-              <a href="{{route('post', $post->id)}}" class="btn-card">بیشتر</a>
-            </div>
-          </div>
         </div>
-              @endforeach
+        <div class="container-fluid mb-5">
+            <table class="table-striped">
+                <thead class="text-white">
+                <tr>
+                    <th>DIN</th>
+                    <th>DIN سیمبل</th>
+                    <th>نام مصطلح در بازار ایران</th>
+                    <th>کاربرد</th>
+                </tr>
+                <thead>
+                <tbody>
 
-      </div>
-    </div>
-    <div class="d-flex flex-row ml-5 mb-3">
-      <a href="{{route('posts')}}" class="btn btn-lg text-white " style="background-color: #c1190b; font-weight: 300"> همه مطالب </a>
-    </div>
-  </section>
+                @foreach($products as $product)
+                    <tr>
+                        <td>{{$product->din}}</td>
+                        <td>{{$product->din_symbol}}</td>
+                        <td>{{$product->name}}</td>
+                        <td>{{$product->usage}}</td>
+
+                    </tr>
+                @endforeach
+
+
+                </tbody>
+            </table>
+        </div>
+        <div class="d-flex flex-row ">
+            <a href="#location" id="fab" class="btn btn-success btn-lg ml-5 example-1" style="text-align: center;vertical-align: center;position: fixed;bottom: 0;z-index: 9000;margin-bottom: 5%;"><span class="fa fa-phone pt-2" id="logo"></span></a>
+        </div>
+        <div class="d-flex flex-row ml-5 mb-3">
+            <a href="{{route('products')}}" class="btn btn-lg text-white bg-light text-dark " style=" font-weight: 300"> همه کالا ها </a>
+        </div>
+    </section>
+
+    <!--NEWS CARD -->
+    <section class="details-card mt-4 bg-light py-5" id="news-section">
+        <div class="row">
+            <div class="col-md-4 ml-auto mr-auto text-center pb-5">
+                <h1 class="text-dark" style="font-weight: 500;"> آخرین اخبار و مطالب  </h1>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row mb-5">
+
+                @foreach($posts as $post)
+                    <div class="col-md-4">
+                        <div class="card-content">
+                            <div class="card-img">
+                                <img src="img/image3.jpg" alt="">
+                            </div>
+                            <div class="card-desc">
+                                <h3>{{$post->title}}</h3>
+                                <p class="card-main-content">
+                                    {{$post->content}}
+                                </p>
+                                <a href="{{route('post', $post->id)}}" class="btn-card">بیشتر</a>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+
+            </div>
+        </div>
+        <div class="d-flex flex-row ml-5 mb-3">
+            <a href="{{route('posts')}}" class="btn btn-lg text-white " style="background-color: #c1190b; font-weight: 300"> همه مطالب </a>
+        </div>
+    </section>
 
 
 
-  <!--LOCATION SECTION -->
-  <section id="location">
+    <!--LOCATION SECTION -->
+    <section id="location">
         <div class="container">
             <div class="row ">
                 <div class=" col-md-4  ml-auto mr-auto text-center py-5">
@@ -196,16 +198,16 @@
                 </div>
                 <div class="col-md-7 text-white" style="direction: rtl !important; text-align: start" id="address">
 
-                  <h3 class="pt-3 ">
-                    <i class="fa fa-location-arrow"></i>
-                      نشانی :
-                  </h3>
-                  <p class="py-3 mr-3"style="font-weight:500;"> {{$address}}</p>
-                  <h3 class="pt-3 ">
-                    <i class="fa fa-phone"></i>
-                    شماره تماس :
-                  </h3>
-                  <p class="py-3 mr-3"style="font-weight:500;">{{$phone}}  </p>
+                    <h3 class="pt-3 ">
+                        <i class="fa fa-location-arrow"></i>
+                        نشانی :
+                    </h3>
+                    <p class="py-3 mr-3"style="font-weight:500;"> {{$address}}</p>
+                    <h3 class="pt-3 ">
+                        <i class="fa fa-phone"></i>
+                        شماره تماس :
+                    </h3>
+                    <p class="py-3 mr-3"style="font-weight:500;">{{$phone}}  </p>
 
                 </div>
             </div>
@@ -213,7 +215,7 @@
         </div>
     </section>
 
- @include('include.footer')
+    @include('include.footer')
 
 </div>
 
@@ -250,10 +252,10 @@
       document.getElementById("fab").setAttribute('href', "tel:04134478308");
       document.getElementById("logo").classList.remove("fa-map-marker");
       document.getElementById("logo").classList.add("fa-phone");
-        document.getElementById("map").style.width = "250px";
-        document.getElementById("map").style.height = "300px";
-        // document.getElementById("address").remove("d-none");
-        // document.getElementById("address").remove("d-md-block");
+      document.getElementById("map").style.width = "250px";
+      document.getElementById("map").style.height = "300px";
+      // document.getElementById("address").remove("d-none");
+      // document.getElementById("address").remove("d-md-block");
 
       return true
     }else {

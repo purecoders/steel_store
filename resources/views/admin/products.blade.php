@@ -1,29 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> مدیریت کالا</title>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/style.css">
+    @include('include.admin_head')
 </head>
 <body class="bg-light" style="">
 <!--NAV BAR-->
 
 <!--HEADER-->
-<header id="main-header" class="py-2 bg-primary text-white "style="text-align: end">
-    <div class="container py-3">
-        <div class="d-flex flex-row justify-content-between">
-        <span>
-            <a href="../index.html " class="mb-2" style="text-decoration: none; color:#1b1e21;"> <h5 class=" ">بازگشت به صفحه اصلی سایت</h5> </a>
-            <a href="../index.html " class="mt-3" style="text-decoration: none;color:#fff4f4;"> <h6 class=" ">خروج</h6> </a>
-        </span>
-            <h2 class="rtl"> بخش مدیریت کالا  <i class="fa fa-gear"></i></h2>
-        </div>
-    </div>
-</header>
+@include('include.admin_header')
 
 <section id="add-product">
     <div class="container" style="direction: rtl !important">
@@ -34,42 +18,31 @@
         </div>
         <div class="row ">
             <div class="col-md-12 mt-1 " >
-                <form>
+                <form action="{{route('admin-product-add')}}" method="post">
+                    @csrf
                     <div class="form-group row  ">
                         <label for="postTitle" class="col-sm-2 col-form-label">DIN</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="postTitle"
-                                   placeholder="">
+                            <input name="din" type="text" class="form-control" id="postTitle" required>
                         </div>
                     </div>
-                    <!--<div class="form-group">-->
-                    <!--<div class="row">-->
-                    <!--<legend class="col-form-label col-sm-2 pt-0 ">تصویر</legend>-->
-                    <!--<div class="col-sm-10 ">-->
-                    <!--<input type="file" name="" accept="image/*" class="form-control-file"/>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
                     <div class="form-group row  ">
                         <label for="postTitle" class="col-sm-2 col-form-label">سیمبل DIN </label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control"
-                                   placeholder="">
+                            <input name="din_symbol" type="text" class="form-control" required>
                         </div>
                     </div>
 
                     <div class="form-group row  ">
                         <label for="postTitle" class="col-sm-2 col-form-label">نام مصطلح در بازار ایران</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control"
-                                   placeholder="">
+                            <input name="name" type="text" class="form-control" required>
                         </div>
                     </div>
                     <div class="form-group row  ">
                         <label for="postTitle" class="col-sm-2 col-form-label">کاربرد</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control"
-                                   placeholder="">
+                            <input name="usage" type="text" class="form-control">
                         </div>
                     </div>
                         <div class="form-group">
@@ -107,52 +80,28 @@
             </tr>
             </thead>
             <tbody>
+            @php($i=1)
+            @foreach($products as $product)
             <tr>
-                <th scope="row">1</th>
-                <td>علی</td>
-                <td>عربگری</td>
-                <td>aliarabgary@gmail.com</td>
-                <td >09365018124</td>
+                <th scope="row">{{$i++}}</th>
+                <td>{{$product->din}}</td>
+                <td>{{$product->din_symbol}}</td>
+                <td>{{$product->name}}</td>
+                <td >{{$product->usage}}</td>
 
-                <td><a href="EditProduct.html"><button class="btn bg-success  text-white" type="button" data-toggle="modal" data-target="#Modal"> ویرایش</button>
-                </a>
-                    <button class="btn bg-danger text-white" type="button" data-toggle="modal" data-target="#Modal"> حذف</button></td>
+                <td>
+                    <a href="{{route('admin-product-edit', $product->id)}}">
+                        <button class="btn bg-success  text-white" type="button" > ویرایش</button>
+                    </a>
+                    <a href="{{route('admin-product-remove', $product->id)}}">
+                        <button class="btn bg-danger text-white" type="button" data-toggle="modal" > حذف</button>
+                    </a>
+                </td>
 
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>محسن</td>
-                <td>ضیایی</td>
-                <td>farjamiiii@gmail.com</td>
-                <td >09365016591</td>
 
-                <!--<td class="row">-->
-                    <!--<div class="col-md-6">-->
+            @endforeach
 
-                    <!--</div><div class="col-md-6">-->
-
-                    <!--</div>-->
-                <!--</td>-->
-                <td><a href="EditProduct.html"><button class="btn bg-success  text-white" type="button" data-toggle="modal" data-target="#Modal"> ویرایش</button>
-                </a>
-                    <button class="btn bg-danger text-white" type="button" data-toggle="modal" data-target="#Modal"> حذف</button></td>
-
-
-
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>مریم</td>
-                <td>مولایی</td>
-                <td>m.molaee@gmail.com</td>
-                <td >09142536018</td>
-
-                <td><a href="EditProduct.html"><button class="btn bg-success  text-white" type="button" data-toggle="modal" data-target="#Modal"> ویرایش</button>
-                </a>
-                    <button class="btn bg-danger text-white" type="button" data-toggle="modal" data-target="#Modal"> حذف</button></td>
-
-
-            </tr>
             </tbody>
         </table>
     </div>
@@ -186,8 +135,6 @@
 
 
 
-<script src="../js/jquery.min.js"></script>
-<script src="../js/popper.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+@include('include.scripts')
 </body>
 </html>

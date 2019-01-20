@@ -1,29 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> ویرایش پست</title>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/style.css">
+    @include('include.admin_head')
 </head>
 <body class="bg-light">
 <!--NAV BAR-->
 
 <!--HEADER-->
-<header id="main-header" class="py-2 bg-primary text-white "style="text-align: end">
-    <div class="container py-3">
-        <div class="d-flex flex-row justify-content-between">
-        <span>
-            <a href="../index.html " class="mb-2" style="text-decoration: none; color:#1b1e21;"> <h5 class=" ">بازگشت به صفحه اصلی سایت</h5> </a>
-            <a href="../index.html " class="mt-3" style="text-decoration: none;color:#fff4f4;""> <h6 class=" ">خروج</h6> </a>
-        </span>
-            <h2 class="rtl"> ویرایش پست  <i class="fa fa-gear"></i></h2>
-        </div>
-    </div>
-</header>
+@include('include.admin_header')
+
 <!--EDIT Post-->
 <section id="edit-post">
     <div class="container" style="direction: rtl !important">
@@ -131,8 +116,6 @@
 
 
 
-<script src="../js/jquery.min.js"></script>
-<script src="../js/popper.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+@include('include.scripts')
 </body>
 </html>

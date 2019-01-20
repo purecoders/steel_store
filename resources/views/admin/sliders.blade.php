@@ -1,24 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title> مدیریت اسلایدها</title>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/style.css">
+    @include('include.admin_head')
 </head>
 
 
 <body class="bg-light">
 
 <!--HEADER-->
-<header id="main-header" class="py-2 bg-primary text-white "style="text-align: end">
-    <div class="container py-3">
-        <h3 class="rtl">   بخش مدریت اسلایدها <i class="fa fa-gear"></i></h3>
-    </div>
-</header>
+@include('include.admin_header')
 
 
 <!--ADD SLIDE-->
@@ -139,8 +129,6 @@
 
 
 
-<script src="../js/jquery.min.js"></script>
-<script src="../js/popper.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
+@include('include.scripts')
 </body>
 </html>

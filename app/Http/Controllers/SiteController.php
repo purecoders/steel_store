@@ -11,6 +11,11 @@ use Illuminate\Http\Request;
 class SiteController extends Controller
 {
 
+  public function login(){
+    return view('admin.login');
+  }
+
+
   public function index(){
     $sliders = Slider::orderBy('id', 'desc')->get();
     $products = Product::orderBy('id', 'desc')->take(10)->get();
@@ -42,7 +47,40 @@ class SiteController extends Controller
 
   public function posts(){
     $posts = Post::orderBy('id', 'desc')->paginate(9);
-    return view('site.articles', compact('posts'));
+    $posts1 = array();
+    $posts2 = array();
+    $posts3 = array();
+    $i = 0;
+    foreach ($posts as $post){
+      $i++;
+      if($i > 0 && $i <= 3) $posts1 [] = $post;
+      else if($i > 3 && $i <= 6) $posts2 [] = $post;
+      else if($i > 6 && $i <= 9) $posts3 [] = $post;
+    }
+    $links = $posts->links();
+    return view('site.articles', compact(['links', 'posts1', 'posts2', 'posts3']));
   }
 
+
+  public function products(){
+    $products = Product::orderBy('id', 'desc')->get();
+    return view('site.products', compact('products'));
+  }
+
+
+  public function calcPage(){
+    return view('site.calculation');
+  }
+
+  public function search(Request $request){
+    $text = $request->text;
+    $products = Product::where('din', 'like', "%$text%")
+      ->orWhere('din_symbol', 'like', "%$text%")
+      ->orWhere('name', 'like', "%$text%")
+      ->orWhere('usage', 'like', "%$text%")
+      ->get();
+
+    return view('site.products', compact('products'));
+
+  }
 }

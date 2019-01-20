@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>ورود به پنل مدیریت</title>
-    <link rel="stylesheet" href="../css/font-awesome.min.css">
-    <link rel="stylesheet" href="../css/bootstrap.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
 </head>
 <body>
 <!--ENTERY-->
@@ -20,25 +20,28 @@
                         <h5 class=" text-center text-white my-4"> ورود به سیستم </h5>
                     </div>
                     <div class="card-body" style="" >
-                        <form style="direction: rtl !important;">
+
+                        <form action="{{route('login')}}" method="post" style="direction: rtl !important;">
+                            @csrf
                             <div class="form-group row">
                                 <label for="postTitle" class="col-sm-3 justify-content-center pt-2 " style="font-weight: bold; " >  نام کاربری  :</label>
                                 <div class="col-sm-9">
                                     <input type="text" class="form-control" id="postTitle"
-                                           placeholder="نام کاربری خود را وارد کنید...">
+                                           placeholder="نام کاربری خود را وارد کنید..."
+                                    name="email">
                                 </div>
                             </div>
                             <div class="form-group row">
                                 <label for="postTitle" class="col-sm-3 justify-content-center pt-2 " style="font-weight: bold; " >  رمز عبور  :</label>
                                 <div class="col-sm-9">
-                                    <input type="text" class="form-control" id="postTitle"
-                                           placeholder="رمز عبور خود را وارد کنید...">
+                                    <input type="password" class="form-control" id="postTitle"
+                                           placeholder="رمز عبور خود را وارد کنید..."
+                                    name="password">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <a href="home.html" type="submit" class="btn btn-success mr-auto ml-3" style="font-size: 1.09rem;">ورود به سیستم </a>
+                                <input type="submit" value="ورود" class="btn btn-success mr-auto ml-3" style="font-size: 1.09rem;"/>
                             </div>
-                    </div>
 
                     </form>
                 </div>
@@ -47,9 +50,9 @@
     </div>
     </div>
 </section>
-<script src="js/jquery.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
+
+@include('include.scripts')
+
 </body>
 </html>
 
@@ -57,24 +60,3 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-<!-- <li class="nav-item dropdown">
-       <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-         Dropdown
-       </a>
-       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-         <a class="dropdown-item" href="#">Action</a>
-         <a class="dropdown-item" href="#">Another action</a>
-         <div class="dropdown-divider"></div>
-         <a class="dropdown-item" href="#">Something else here</a>
-       </div> -->

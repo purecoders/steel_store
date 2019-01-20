@@ -19,7 +19,7 @@
             <div class="row mb-5">
 
 
-                @foreach($posts as $post)
+                @foreach($posts1 as $post)
             <div class="col-md-4">
                 <div class="card-content">
                     <div class="card-img">
@@ -39,131 +39,71 @@
                 @endforeach
 
 
-            {{--<div class="col-md-4">--}}
-                {{--<div class="card-content">--}}
-                    {{--<div class="card-img">--}}
-                        {{--<img src="img/round_steel_bar.jpg" alt="">--}}
-                    {{--</div>--}}
-                    {{--<div class="card-desc">--}}
-                        {{--<h3>عنوان متن</h3>--}}
-                        {{--<p class="card-main-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis--}}
-                            {{--voluptas totam</p>--}}
-                        {{--<a href="Article Details.html" class="btn-card"  style="background-color: #c1190b">بیشتر</a>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="col-md-4">--}}
-                {{--<div class="card-content">--}}
-                    {{--<div class="card-img">--}}
-                        {{--<img src="img/round_steel_bar.jpg" alt="">--}}
-                    {{--</div>--}}
-                    {{--<div class="card-desc">--}}
-                        {{--<h3>عنوان متن</h3>--}}
-                        {{--<p class="card-main-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis--}}
-                            {{--voluptas totam dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis--}}
-                            {{--voluptas totamdolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis--}}
-                            {{--voluptas totam</p>--}}
-                        {{--<a href="Article Details.html" class="btn-card"  style="background-color: #c1190b">بیشتر</a>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
+
         </div>
-            {{--<div class="row mb-5">--}}
-                {{--<div class="col-md-4">--}}
-                    {{--<div class="card-content">--}}
-                        {{--<div class="card-img">--}}
-                            {{--<img src="img/image3.jpg" alt="">--}}
+            <div class="row mb-5">
+                @foreach($posts2 as $post)
+                    <div class="col-md-4">
+                        <div class="card-content">
+                            <div class="card-img">
+                                <img src="{{$post->image_path}}" alt="">
 
-                        {{--</div>--}}
-                        {{--<div class="card-desc">--}}
-                            {{--<h3>عنوان متن</h3>--}}
-                            {{--<p class="card-main-content">icing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis--}}
-                                {{--voluptas totam</p>--}}
-                            {{--<a href="Article Details.html" class="btn-card" style="background-color: #c1190b">بیشتر</a>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="col-md-4">--}}
-                    {{--<div class="card-content">--}}
-                        {{--<div class="card-img">--}}
-                            {{--<img src="img/round_steel_bar.jpg" alt="">--}}
-                        {{--</div>--}}
-                        {{--<div class="card-desc">--}}
-                            {{--<h3>عنوان متن</h3>--}}
-                            {{--<p class="card-main-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis--}}
-                                {{--voluptas totam</p>--}}
-                            {{--<a href="Article Details.html" class="btn-card"  style="background-color: #c1190b">بیشتر</a>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="col-md-4">--}}
-                    {{--<div class="card-content">--}}
-                        {{--<div class="card-img">--}}
-                            {{--<img src="img/round_steel_bar.jpg" alt="">--}}
-                        {{--</div>--}}
-                        {{--<div class="card-desc">--}}
-                            {{--<h3>عنوان متن</h3>--}}
-                            {{--<p class="card-main-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis--}}
-                                {{--voluptas totam dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis--}}
-                                {{--voluptas totamdolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis--}}
-                                {{--voluptas totam</p>--}}
-                            {{--<a href="Article Details.html" class="btn-card"  style="background-color: #c1190b">بیشتر</a>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
-            {{--<div class="row mb-5">--}}
-                {{--<div class="col-md-4">--}}
-                    {{--<div class="card-content">--}}
-                        {{--<div class="card-img">--}}
-                            {{--<img src="img/image3.jpg" alt="">--}}
+                            </div>
+                            <div class="card-desc">
+                                <h3>{{$post->title}}</h3>
+                                <p class="card-main-content">
+                                    {{$post->content}}
+                                </p>
+                                <a href="{{route('post', $post->id)}}" class="btn-card" style="background-color: #c1190b">بیشتر</a>
+                            </div>
+                        </div>
+                    </div>
 
-                        {{--</div>--}}
-                        {{--<div class="card-desc">--}}
-                            {{--<h3>عنوان متن</h3>--}}
-                            {{--<p class="card-main-content">icing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis--}}
-                                {{--voluptas totam</p>--}}
-                            {{--<a href="Article Details.html" class="btn-card" style="background-color: #c1190b">بیشتر</a>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="col-md-4">--}}
-                    {{--<div class="card-content">--}}
-                        {{--<div class="card-img">--}}
-                            {{--<img src="img/round_steel_bar.jpg" alt="">--}}
-                        {{--</div>--}}
-                        {{--<div class="card-desc">--}}
-                            {{--<h3>عنوان متن</h3>--}}
-                            {{--<p class="card-main-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis--}}
-                                {{--voluptas totam</p>--}}
-                            {{--<a href="Article Details.html" class="btn-card"  style="background-color: #c1190b">بیشتر</a>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-                {{--<div class="col-md-4">--}}
-                    {{--<div class="card-content">--}}
-                        {{--<div class="card-img">--}}
-                            {{--<img src="img/round_steel_bar.jpg" alt="">--}}
-                        {{--</div>--}}
-                        {{--<div class="card-desc">--}}
-                            {{--<h3>عنوان متن</h3>--}}
-                            {{--<p class="card-main-content">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis--}}
-                                {{--voluptas totam dolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis--}}
-                                {{--voluptas totamdolor sit amet consectetur, adipisicing elit. Laboriosam, voluptatum! Dolor quo, perspiciatis--}}
-                                {{--voluptas totam</p>--}}
-                            {{--<a href="Article Details.html" class="btn-card"  style="background-color: #c1190b">بیشتر</a>--}}
-                        {{--</div>--}}
-                    {{--</div>--}}
-                {{--</div>--}}
-            {{--</div>--}}
+                @endforeach
+
+            </div>
+
+            <div class="row mb-5">
+                @foreach($posts3 as $post)
+                    <div class="col-md-4">
+                        <div class="card-content">
+                            <div class="card-img">
+                                <img src="{{$post->image_path}}" alt="">
+
+                            </div>
+                            <div class="card-desc">
+                                <h3>{{$post->title}}</h3>
+                                <p class="card-main-content">
+                                    {{$post->content}}
+                                </p>
+                                <a href="{{route('post', $post->id)}}" class="btn-card" style="background-color: #c1190b">بیشتر</a>
+                            </div>
+                        </div>
+                    </div>
+
+                @endforeach
+
+            </div>
         </div>
     </section>
 
+    <div class="container" >
+        <div class="d-flex align-items-center">
+            <div class="flex-item text-center ml-auto mr-auto" style="">
+                <nav aria-label="Page navigation example"  >
+                    <ul class="pagination" >
+                        {{$links}}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
 
 
 
 
 
+@include('include.footer')
 
 
     <script>
