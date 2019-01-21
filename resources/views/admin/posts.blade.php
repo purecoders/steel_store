@@ -13,24 +13,25 @@
     <div class="container" style="direction: rtl !important">
         <div class="d-flex py-3 mt-2">
             <hr>
-            <h3 class="">اضافه کردن کالا</h3>
+            <h3 class="">اضافه کردن پست</h3>
             <hr>
         </div>
         <div class="row ">
             <div class="col-md-12 mt-1 " >
-                <form>
+                <form action="{{route('admin-post-add')}}" method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group row  ">
                         <label for="postTitle" class="col-sm-2 col-form-label">عنوان</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="postTitle"
-                                   placeholder="عنوان دوره را وارد کنید...">
+                            <input name="title" type="text" class="form-control" id="postTitle"
+                                   placeholder="عنوان دوره را وارد کنید..." required>
                         </div>
                     </div>
                     <div class="form-group">
                     <div class="row">
                     <legend class="col-form-label col-sm-2 pt-0 ">تصویر</legend>
                     <div class="col-sm-10 ">
-                    <input type="file" name="" accept="image/*" class="form-control-file"/>
+                    <input type="file" name="image" accept="image/*" class="form-control-file" required/>
                     </div>
                     </div>
                     </div>
@@ -38,18 +39,14 @@
                         <div class="row">
                             <legend class="col-form-label col-sm-2 pt-0 ">توضیحات </legend>
                             <div class="col-sm-10">
-                                <textarea class="form-control" placeholder="محتوای پست..."></textarea>
+                                <textarea name="content" class="form-control" placeholder="محتوای پست..." required></textarea>
                             </div>
                         </div>
                     </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <legend class="col-form-label col-sm-2 pt-0 ">کلمات کلیدی </legend>
-                            <div class="col-sm-10">
-                                <textarea class="form-control" placeholder="لطفا تعدادی کلمه مرتبط با متن وارد کنید.."></textarea>
-                            </div>
-                        </div>
-                    </div>
+
+
+
+
                       <div class="form-group">
                         <div class="">
                             <input type="submit" class="btn btn-success ml-auto mr-auto  mr-auto d-block " value="اضافه کردن پست" style="width: 200px;height: 50px; font-weight: 800;" >
@@ -84,34 +81,29 @@
             </tr>
             </thead>
             <tbody>
-            <tr>
-                <th scope="row">1</th>
-                <td>علی</td>
 
-                <td><a href="EditPost.html"><button class="btn bg-success  text-white" type="button" data-toggle="modal" data-target="#Modal"> ویرایش</button>
-                </a>
-                    <button class="btn bg-danger text-white" type="submit" data-toggle="modal" data-target="#Modal"> حذف</button></td>
+            @php($i = 0)
+            @foreach($posts as $post)
+                <tr>
+                    <th scope="row">{{++$i}}</th>
+                    <td>{{$post->title}}</td>
 
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>محسن</td>
-                <td><a href="EditPost.html"><button class="btn bg-success  text-white" type="button" data-toggle="modal" data-target="#Modal"> ویرایش</button>
-                </a>
-                    <button class="btn bg-danger text-white" type="submit" data-toggle="modal" data-target="#Modal"> حذف</button></td>
+                    <td>
+                        <a href="{{route('admin-post-edit-page', $post->id)}}">
+                            <button class="btn bg-success  text-white"> ویرایش</button>
 
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{route('admin-post-remove', $post->id)}}">
+                            <button class="btn bg-danger text-white"> حذف</button>
+                        </a>
+                    </td>
 
-
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>مریم</td>
-                <td><a href="EditPost.html"><button class="btn bg-success  text-white" type="button" data-toggle="modal" data-target="#Modal"> ویرایش</button>
-                </a>
-                    <button class="btn bg-danger text-white" type="button" data-toggle="modal" data-target="#Modal"> حذف</button></td>
+                </tr>
+            @endforeach
 
 
-            </tr>
             </tbody>
         </table>
     </div>

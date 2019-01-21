@@ -21,18 +21,19 @@
         </div>
         <div class="row ">
             <div class="col-md-12 mt-1 " >
-                <form>
+                <form action="{{route('admin-slider-add')}}" method="post" enctype="multipart/form-data">
+                    @csrf
                     <div class="form-group row  ">
                         <legend for="postTitle" class="col-sm-2 col-form-label">عنوان اسلاید </legend>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" id="postTitle">
+                            <input name="title" type="text" class="form-control" id="postTitle" required>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="row">
                          <legend class="col-form-label col-sm-2 pt-0 ">تصویر اسلاید</legend>
                          <div class="col-sm-10 ">
-                            <input type="file" name="" accept="image/*" class="form-control-file" placeholder="با کیفیت بالا"/>
+                            <input type="file" name="image" accept="image/*" class="form-control-file" placeholder="با کیفیت بالا" required/>
                          </div>
                         </div>
                     </div>
@@ -40,7 +41,7 @@
                         <div class="row">
                             <legend class="col-form-label col-sm-2 pt-0 ">توضیحات مختصر </legend>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="جهت نمایش در صفحه اصلی"></inputty>
+                                <input name="description" type="text" class="form-control" placeholder="جهت نمایش در صفحه اصلی"></inputty>
                             </div>
                         </div>
                     </div>
@@ -49,7 +50,7 @@
                         <div class="row">
                             <legend class="col-form-label col-sm-2 pt-0 ">لینک اسلاید</legend>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" placeholder="در صورت وجود">
+                                <input name="url" type="text" class="form-control" placeholder="در صورت وجود">
                             </div>
                         </div>
                     </div>
@@ -80,29 +81,23 @@
             <thead class="thead-inverse bg-dark text-white " >
             <tr>
                 <th>#</th>
-                <th>نام</th>
+                <th>عنوان</th>
                 <th>حذف</th>
             </tr>
             </thead>
             <tbody>
+
+            @php($i=0)
+            @foreach($sliders as $slider)
             <tr>
-                <th scope="row">1</th>
-                <td>علی</td>
+                <th scope="row">{{++$i}}</th>
+                <td>{{$slider->title}}</td>
                 <td>
-                    <button class="btn bg-danger text-white" type="button" data-toggle="modal" data-target="#Modal"> حذف</button></td>
+                    <a href="{{route('admin-slider-remove', $slider->id)}}" class="btn bg-danger text-white"  > حذف</a></td>
             </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>محسن</td>
-                <td>
-                    <button class="btn bg-danger text-white" type="button" data-toggle="modal" data-target="#Modal"> حذف</button></td>
-            </tr>
-            <tr>
-                <th scope="row">3</th>
-                <td>مریم</td>
-                <td>
-                    <button class="btn bg-danger text-white" type="button" data-toggle="modal" data-target="#Modal"> حذف</button></td>
-            </tr>
+            @endforeach
+
+
             </tbody>
         </table>
     </div>
@@ -119,7 +114,7 @@
                 </button>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-success btn-lg" data-dismiss="modal">بله</button>
+                <a href="" class="btn btn-success btn-lg" data-dismiss="modal">بله</a>
                 <button type="submit" class="btn btn-danger btn-lg" data-dismiss="modal">خیر</button>
 
             </div>

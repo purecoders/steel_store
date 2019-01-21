@@ -25,14 +25,18 @@ class SiteController extends Controller
     $email = '';
     $phone = '';
     $address = '';
+    $mobile = '';
+    $mobile2 = '';
     foreach ($infos as $info){
       if($info->key == 'email') $email = $info->value;
       if($info->key == 'phone') $phone = $info->value;
       if($info->key == 'address') $address = $info->value;
+      if($info->key == 'mobile') $mobile = $info->value;
+      if($info->key == 'mobile2') $mobile2 = $info->value;
     }
 
 
-    return view('site.index', compact(['sliders', 'products', 'posts', 'email', 'phone', 'address']));
+    return view('site.index', compact(['sliders', 'products', 'posts', 'email', 'phone', 'address', 'mobile', 'mobile2']));
   }
 
 

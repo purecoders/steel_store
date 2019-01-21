@@ -27,7 +27,15 @@ Route::get('/admin-products', 'AdminController@products')->name('admin-products'
 Route::post('/admin-change-password', 'AdminController@changePassword')->name('admin-change-password');
 Route::post('/admin-change-site-info', 'AdminController@changeInfo')->name('admin-change-site-info');
 Route::post('/admin-product-add', 'AdminController@productAdd')->name('admin-product-add');
-Route::get('/admin-product-edit/{id}', 'AdminController@productEdit')->name('admin-product-edit');
+Route::get('/admin-product-edit-page/{id}', 'AdminController@productEditPage')->name('admin-product-edit-page');
+Route::post('/admin-product-edit', 'AdminController@productEdit')->name('admin-product-edit');
 Route::get('/admin-product-remove/{id}', 'AdminController@productRemove')->name('admin-product-remove');
+Route::get('/admin-slider-remove/{id}', 'AdminController@sliderRemove')->name('admin-slider-remove');
+Route::post('/admin-slider-add', 'AdminController@sliderAdd')->name('admin-slider-add');
+Route::post('/admin-post-add', 'AdminController@postAdd')->name('admin-post-add');
+Route::get('/admin-post-edit-page/{id}', 'AdminController@postEditPage')->name('admin-post-edit-page');
+Route::post('/admin-post-edit', 'AdminController@postEdit')->name('admin-post-edit');
+Route::get('/admin-post-remove/{id}', 'AdminController@postRemove')->name('admin-post-remove');
+Route::post('/admin-tag-add', 'AdminController@tagAdd')->name('admin-tag-add');
 
 

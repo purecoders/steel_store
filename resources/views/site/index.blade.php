@@ -13,7 +13,7 @@
 
 <!--NAVIGATION SECTION-->
     <nav class="navbar navbar-expand-lg  text-white" >
-        <form action="{{route('search')}}" method="post" style="width: 600px; "  >
+        <form action="{{route('search')}}" method="post" style="width: 600px; " id="search-form" >
             @csrf
             <div class="input-group" >
               <span class="">
@@ -66,7 +66,7 @@
                 @foreach($sliders as $slider)
                     @php($i++)
                     <div class="carousel-item carousel-image-1  @if($i==1) active @endif"  style="background:{{asset($slider->image_path)}}" >
-                        <img src="{{asset($slider->image_path)}}" style="height: 100%; width: 100%">
+                        <img src="{{asset($slider->image_path)}}" style="height: 100%; width: 100%;position: relative">
                         <div class="container">
                             <div class="carousel-caption  text-right mb-5 p-4"style="background: #00000070;
   color: white;
@@ -158,9 +158,9 @@
 
                 @foreach($posts as $post)
                     <div class="col-md-4">
-                        <div class="card-content">
+                        <div class="card-content my-3">
                             <div class="card-img">
-                                <img src="img/image3.jpg" alt="">
+                                <img src="{{$post->image_path}}" alt="" class="">
                             </div>
                             <div class="card-desc">
                                 <h3>{{$post->title}}</h3>
@@ -205,9 +205,14 @@
                     <p class="py-3 mr-3"style="font-weight:500;"> {{$address}}</p>
                     <h3 class="pt-3 ">
                         <i class="fa fa-phone"></i>
-                        شماره تماس :
+                        شماره های تماس :
                     </h3>
-                    <p class="py-3 mr-3"style="font-weight:500;">{{$phone}}  </p>
+                    {{--<p class="py-3 mr-3"style="font-weight:500;">{{$phone}} , {{$mobile}} , {{$mobile2}} </p>--}}
+                    <br>
+                    <p class=" mr-3"style="font-weight:500;">{{$phone}} </p>
+                    <p class="mr-3"style="font-weight:500;">{{$mobile}}  </p>
+                    <p class="mr-3"style="font-weight:500;">{{$mobile2}}  </p>
+
 
                 </div>
             </div>
@@ -249,11 +254,14 @@
 
     if (window.innerWidth <= 800 && window.innerHeight <= 600){
       console.log("this is mobile screen")
-      document.getElementById("fab").setAttribute('href', "tel:04134478308");
+      var phone = {{$phone}} + "";
+      phone = phone.replace("-", "");
+      document.getElementById("fab").setAttribute('href', "tel:" + phone);
       document.getElementById("logo").classList.remove("fa-map-marker");
       document.getElementById("logo").classList.add("fa-phone");
-      document.getElementById("map").style.width = "250px";
+      document.getElementById("map").style.width = "230px";
       document.getElementById("map").style.height = "300px";
+      document.getElementById("search-form").style.width = "250px";
       // document.getElementById("address").remove("d-none");
       // document.getElementById("address").remove("d-md-block");
 

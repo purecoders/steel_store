@@ -56,9 +56,11 @@
                     <div class="row key-words">
                         <div class="col-md-12">
                             @foreach($tags as $tag)
-                            <a href="{{$tag->url}}"> {{$tag->name}} </a>
+                            <a class="p-1" href="{{$tag->url}}"> {{$tag->name}} </a>
                             @endforeach
                         </div>
+                        <br>
+                        <br>
                     </div>
                 </div>
             </div>

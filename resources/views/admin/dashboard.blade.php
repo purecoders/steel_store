@@ -118,6 +118,12 @@
                         </div>
                     </div>
                     <div class="form-group row  ">
+                        <label class="col-sm-4 col-form-label" > شماره تلفن موبایل دوم :</label>
+                        <div class="col-sm-8">
+                            <input name="mobile2" type="text" class="form-control" value="{{$mobile2}}" required>
+                        </div>
+                    </div>
+                    <div class="form-group row  ">
                         <label class="col-sm-4 col-form-label" > ایمیل   :</label>
                         <div class="col-sm-8">
                             <input name="email" type="text" class="form-control" value="{{$email}}" required>

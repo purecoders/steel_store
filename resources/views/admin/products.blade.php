@@ -90,7 +90,7 @@
                 <td >{{$product->usage}}</td>
 
                 <td>
-                    <a href="{{route('admin-product-edit', $product->id)}}">
+                    <a href="{{route('admin-product-edit-page', $product->id)}}">
                         <button class="btn bg-success  text-white" type="button" > ویرایش</button>
                     </a>
                     <a href="{{route('admin-product-remove', $product->id)}}">
