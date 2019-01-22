@@ -19,7 +19,7 @@ class SiteController extends Controller
 
   public function index(){
     $sliders = Slider::orderBy('id', 'desc')->get();
-    $products = Product::orderBy('id', 'desc')->take(10)->get();
+    $products = Product::orderBy('id', 'asc')->take(10)->get();
     $posts = Post::orderBy('id', 'desc')->take(3)->get();
     $infos = Info::all();
 
@@ -68,7 +68,7 @@ class SiteController extends Controller
 
 
   public function products(){
-    $products = Product::orderBy('id', 'desc')->get();
+    $products = Product::orderBy('id', 'asc')->get();
     return view('site.products', compact('products'));
   }
 
@@ -105,8 +105,24 @@ class SiteController extends Controller
 
     $diagonal = $request->diagonal;
     $lenght = $request->lenght;
-    $result1 = $diagonal * $diagonal * 0.00617 * $lenght;
+    $result1 = $diagonal * $diagonal * 0.00000617 * $lenght;
     return redirect(route('calc-page'))->with('result1', $result1);
+  }
+
+  public function calSteelSheet(Request $request){
+    $this->validate($request, [
+      'lenght' => 'required|numeric|max:90000000|min:0',
+      'width' => 'required|numeric|max:90000000|min:0',
+      'height' => 'required|numeric|max:90000000|min:0',
+      ]);
+
+    $lenght = $request->lenght;
+    $width = $request->width;
+    $height = $request->height;
+
+    $result = $lenght * $width * $height * 0.00000785;
+
+    return redirect(route('calc-page'))->with('result2', $result);
   }
 
 

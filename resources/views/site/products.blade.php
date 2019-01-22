@@ -21,19 +21,19 @@
             <table class="table-striped">
                 <thead class="text-white">
                 <tr>
-                    <th>DIN</th>
-                    <th>DIN سیمبل</th>
-                    <th>نام مصطلح در بازار ایران</th>
-                    <th>کاربرد</th>
+                    <th style="background: #82804b">کد</th>
+                    <th style="background: #57415b">نماد</th>
+                    <th style="background: #2b5833">نام مصطلح در بازار ایران</th>
+                    <th style="background: #0a405a">کاربرد</th>
                 </tr>
                 <thead>
                 <tbody>
                 @foreach($products as $product)
                 <tr>
-                    <td>{{$product->din}}</td>
-                    <td>{{$product->din_symbol}}</td>
-                    <td>{{$product->name}}</td>
-                    <td>{{$product->usage}}</td>
+                    <td style="background: #d0ce7f">{{$product->din}}</td>
+                    <td style="background: #a380a7">{{$product->din_symbol}}</td>
+                    <td style="background: #6db77a">{{$product->name}}</td>
+                    <td style="background: #0b87b7">{{$product->usage}}</td>
 
                 </tr>
                     @endforeach

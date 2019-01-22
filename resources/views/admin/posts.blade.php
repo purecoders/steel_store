@@ -77,7 +77,8 @@
             <tr>
                 <th>#</th>
                 <th>عنوان</th>
-                <th>حذف / ویرایش</th>
+                <th>ویرایش</th>
+                <th>حذف</th>
             </tr>
             </thead>
             <tbody>

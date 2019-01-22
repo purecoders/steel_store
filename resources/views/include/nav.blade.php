@@ -28,7 +28,7 @@
                 <a class="nav-link @if($path == 'posts') active @endif" href="{{route('posts')}}">همه مطالب</a>
             </li>
             <li class="nav-item ">
-                <a class="nav-link @if($path == 'calc-page') active @endif" href="{{route('calc-page')}}">محاسبه وزن</a>
+                <a class="nav-link @if($path == 'calc-page') active @endif" href="{{route('calc-page')}}">محاسبه وزن مواد</a>
             </li>
 
 

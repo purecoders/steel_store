@@ -21,13 +21,13 @@
                 <form action="{{route('admin-product-add')}}" method="post">
                     @csrf
                     <div class="form-group row  ">
-                        <label for="postTitle" class="col-sm-2 col-form-label">DIN</label>
+                        <label for="postTitle" class="col-sm-2 col-form-label">کد</label>
                         <div class="col-sm-10">
                             <input name="din" type="text" class="form-control" id="postTitle" required>
                         </div>
                     </div>
                     <div class="form-group row  ">
-                        <label for="postTitle" class="col-sm-2 col-form-label">سیمبل DIN </label>
+                        <label for="postTitle" class="col-sm-2 col-form-label">نماد</label>
                         <div class="col-sm-10">
                             <input name="din_symbol" type="text" class="form-control" required>
                         </div>
@@ -72,8 +72,8 @@
             <thead class="thead-inverse bg-dark text-white " >
             <tr>
                 <th>#</th>
-                <th>DIN</th>
-                <th>سیمبل DIN</th>
+                <th>کد</th>
+                <th>نماد</th>
                 <th>نام مصطلح در بازار ایران</th>
                 <th>کاربرد</th>
                 <th>ویرایش</th>

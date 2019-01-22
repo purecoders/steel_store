@@ -48,7 +48,7 @@ class AdminController extends Controller
     }
 
     public function products(){
-      $products = Product::orderBy('id', 'desc')->get();
+      $products = Product::orderBy('id', 'asc')->get();
       return view('admin.products', compact('products'));
     }
 
@@ -163,8 +163,8 @@ class AdminController extends Controller
     public function sliderAdd(Request $request){
       $this->validate($request, [
         'title' => 'required|string|max:250',
-        'image' => 'required|image',
-        'description' => 'string|max:250',
+        'image' => 'required',
+//        'description' => 'string|max:250',
         'url' => 'max:250',
       ]);
 
@@ -179,9 +179,11 @@ class AdminController extends Controller
         $image->move($dir, $image_name);
       }
 
+      $description = '';
+      if($request->description !== null) $description = $request->description;
       $slider = Slider::create([
         'title' => $request->title,
-        'description' => $request->description,
+        'description' => $description,
         'url' => $request->url,
         'image_path' => $file_path,
       ]);
