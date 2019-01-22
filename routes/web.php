@@ -17,6 +17,8 @@ Route::get('/posts', 'SiteController@posts')->name('posts');
 Route::get('/products', 'SiteController@products')->name('products');
 Route::get('/calc-page', 'SiteController@calcPage')->name('calc-page');
 Route::post('/search', 'SiteController@search')->name('search');
+Route::post('/cal-steel-shaft', 'SiteController@calSteelShaft')->name('cal-steel-shaft');
+
 
 
 //admin routes

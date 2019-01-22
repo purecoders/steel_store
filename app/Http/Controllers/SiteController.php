@@ -7,6 +7,7 @@ use App\Post;
 use App\Product;
 use App\Slider;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 
 class SiteController extends Controller
 {
@@ -73,8 +74,12 @@ class SiteController extends Controller
 
 
   public function calcPage(){
-    return view('site.calculation');
+    $result1 = Session::get('result1');
+    $result2 = Session::get('result2');
+    $result3 = Session::get('result3');
+    return view('site.calculation', compact(['result1', 'result2', 'result3']));
   }
+
 
   public function search(Request $request){
     $text = $request->text;
@@ -87,4 +92,22 @@ class SiteController extends Controller
     return view('site.products', compact('products'));
 
   }
+
+
+
+
+
+  public function calSteelShaft(Request $request){
+    $this->validate($request, [
+      'diagonal' => 'required|numeric|max:90000000|min:0',
+      'lenght' => 'required|numeric|max:90000000|min:0'
+    ]);
+
+    $diagonal = $request->diagonal;
+    $lenght = $request->lenght;
+    $result1 = $diagonal * $diagonal * 0.00617 * $lenght;
+    return redirect(route('calc-page'))->with('result1', $result1);
+  }
+
+
 }

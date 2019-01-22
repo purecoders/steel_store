@@ -17,24 +17,29 @@
     <section id="calculator">
         <div class="container my-5">
             <div class="row" id="calculate-cards">
+
+
                 <div class="col-lg-4 col-md-6 ">
                     <div class="card text-center bg-primary text-white mb-3 mt-5">
                         <div class="card-body">
-                            <h3 class="pb-3">محاسبه نوع اول</h3>
+                            <h3 class="pb-3">محاسبه وزن شفت فولادی</h3>
                             <div class="divider mb-3"></div>
-                            <form style="direction: rtl !important;">
+
+
+                            <form action="{{route('cal-steel-shaft')}}" method="post" style="direction: rtl !important;">
+                                @csrf
                                 <div class="form-group row ">
-                                    <label for="postTitle1" class="col-sm-5 col-form-label">مقدار اول :</label>
+                                    <label for="postTitle1" class="col-sm-5 col-form-label">قطر  :</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control" required id="postTitle1"
-                                               placeholder="به کیلوگرم">
+                                        <input name="diagonal" type="number" step="any" class="form-control" required id="postTitle1"
+                                               placeholder="بر حسب میلی متر">
                                     </div>
                                 </div>
                                 <div class="form-group row ">
-                                    <label for="postTitle2" class="col-sm-5 col-form-label">مقدار دوم :</label>
+                                    <label for="postTitle2" class="col-sm-5 col-form-label">طول :</label>
                                     <div class="col-sm-7">
-                                        <input type="text" class="form-control" required id="postTitle2"
-                                               placeholder="به کیلوگرم">
+                                        <input name="lenght" type="number" step="any" class="form-control" required id="postTitle2"
+                                               placeholder="بر حسب متر">
                                     </div>
                                 </div>
                                 <div class="row">
@@ -44,13 +49,18 @@
                                 </div>
                             </form>
 
+
+
                         </div>
                         <div class="card-footer bg-light">
-                            <h5 class="text-dark" style="text-align: right">: نتیجه</h5>
+                            <h5 class="text-dark" style="text-align: right"> @if(!is_null($result1))  {{$result1}}   @endif     : (وزن (کیلوگرم </h5>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+
+
+
+                <div class="col-lg-4 col-md-6 d-none">
                     <div class="card text-center bg-primary text-white mb-3 mt-5">
                         <div class="card-body">
                             <h3 class="pb-3">محاسبه نوع دوم</h3>
@@ -83,7 +93,9 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6">
+
+
+                <div class="col-lg-4 col-md-6 d-none">
                     <div class="card text-center bg-primary text-white mb-3 mt-5">
                         <div class="card-body">
                             <h3 class="pb-3">محاسبه نوع سوم</h3>
