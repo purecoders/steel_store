@@ -193,7 +193,7 @@
             </div>
             <div class="row">
                 <div class="col-md-5 pl-5 pb-3">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1415.5792212521903!2d46.23606982012895!3d38.06179423762056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1547028868744" width="450" height="400" frameborder="1" style=" border-radius:15px;border:#c1190b " allowfullscreen id="map"></iframe>
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d785.3364617462274!2d46.228920829221956!3d38.06232605463805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDAzJzQ0LjQiTiA0NsKwMTMnNDYuMSJF!5e0!3m2!1sen!2s!4v1548230745574" width="450" height="400" frameborder="1" style=" border-radius:15px;border:#c1190b " allowfullscreen id="map"></iframe>
 
                 </div>
                 <div class="col-md-7 text-white" style="direction: rtl !important; text-align: start" id="address">
