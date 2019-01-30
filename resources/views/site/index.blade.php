@@ -54,9 +54,11 @@
     <section id="slider">
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active  "></li>
-                <li data-target="#myCarousel" data-slide-to="1" class=""></li>
-
+                @php($i=0)
+                @foreach($sliders as $slider)
+                    <li data-target="#myCarousel{{$slider->id}}" data-slide-to="0" class="@if($i == 0) active @endif "></li>
+                    @php($i++)
+                @endforeach
             </ol>
 
 
@@ -86,6 +88,8 @@
 
 
             </div>
+
+
 
 
 
