@@ -114,8 +114,8 @@ class AdminController extends Controller
 
       $product = Product::create([
         'din' => $request->din,
-        'din_symbol' => $request->din_symbol,
-        'name' => $request->name,
+        'din_symbol' => strtoupper($request->din_symbol),
+        'name' => strtoupper($request->name),
         'usage' => $request->usage,
       ]);
 
@@ -139,8 +139,8 @@ class AdminController extends Controller
 
       $product = Product::find($request->id);
       $product->din = $request->din;
-      $product->din_symbol = $request->din_symbol;
-      $product->name = $request->name;
+      $product->din_symbol = strtoupper($request->din_symbol);
+      $product->name = strtoupper($request->name);
       $product->usage = $request->usage;
       $product->save();
 

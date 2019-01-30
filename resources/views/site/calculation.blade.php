@@ -178,7 +178,10 @@
 
         if (window.innerWidth <= 800 && window.innerHeight <= 600){
             console.log("this is mobile screen")
-            document.getElementById("fab").setAttribute('href', "tel:04134478308");
+            @php
+                $phone = \App\Info::where('key', '=', 'phone')->first()->value;
+            @endphp
+            document.getElementById("fab").setAttribute('href', "tel:{{str_replace('-', '', $phone)}}");
             document.getElementById("logo").classList.remove("fa-map-marker");
             document.getElementById("logo").classList.add("fa-phone");
             document.getElementById("map").style.width = "250px";

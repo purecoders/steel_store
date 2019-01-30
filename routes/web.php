@@ -1,6 +1,13 @@
 <?php
 
-
+Route::get('toupper', function (){
+  $products = \App\Product::all();
+  foreach ($products as $product){
+    $product->din_symbol = strtoupper($product->din_symbol);
+    $product->name = strtoupper($product->name);
+    $product->save();
+  }
+});
 //Auth::routes();
 
 Route::post('login', 'Auth\LoginController@login')->name('login');

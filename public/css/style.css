@@ -42,7 +42,7 @@
 
 @keyframes shadow-pulse {
   0% {
-    box-shadow: 0 0 0 0px rgba(0, 0, 0, 0.9); }
+    box-shadow: 0 0 0 0px #2581208a; }
   100% {
     box-shadow: 0 0 0 35px rgba(0, 0, 0, 0); } }
 
@@ -58,7 +58,38 @@
   100% {
     box-shadow: 0 0 0 70px rgba(0, 0, 0, 0); } }
 
+@keyframes heartbeat
+{
+  0%
+  {
+    transform: scale( .75 );
+  }
+  20%
+  {
+    transform: scale( 1 );
+  }
+  40%
+  {
+    transform: scale( .75 );
+  }
+  60%
+  {
+    transform: scale( 1 );
+  }
+  80%
+  {
+    transform: scale( .75 );
+  }
+  100%
+  {
+    transform: scale( .75 );
+  }
+}
+tr{
+  font-family: tahoma;
+}
 .example-1 {
+  border:0;
   float: left;
   margin: 10px;
   width: 60px;
@@ -67,9 +98,9 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   color: #fff;
-  background: #198706;
+  background: #258120;
   border-radius: 50%;
-  animation: shadow-pulse 0.8s infinite; }
+  animation: shadow-pulse 1.5s infinite;}
 
 .example-2 {
   font-family: Vazir;
@@ -81,18 +112,22 @@
   animation: shadow-pulse2 2.18s infinite; }
 
 body {
-  background-color: #c1190b;
+  background-color: #7e0a00;
   font-family: Vazir; }
 
 #footer {
-  background-color: #c1190b;
-  margin-top: 4%; }
-  #footer i {
-    color: #0800e3; }
-  #footer p {
-    font-weight: 300; }
-  #footer strong {
-    font-weight: 300; }
+  background-color: #272323;
+  color:white;
+}
+#footer i {
+  animation: heartbeat 3s infinite;
+  color: #fd4444; }
+#footer p {
+  font-weight: 300; }
+#footer strong {
+  font-weight: 300; }
+#footer a {
+  color:#198706}
 
 .container-fluid {
   width: 100%;
@@ -123,7 +158,7 @@ body {
   color: #c1190b; }
 
 .top-header {
-  background-color: #c1190b; }
+  background-color: #7e0a00; }
 
 .navbar-nav a {
   color: #ffffff;
@@ -142,21 +177,21 @@ body {
   margin-left: 10px;
   text-align: right;
   padding-right: 5px; }
-  .nav-item .active {
-    background-color: #6c757d;
-    border-radius: 10px; }
+.nav-item .active {
+  background-color: #6c757d;
+  border-radius: 10px; }
 
 .carousel-item {
   height: 450px; }
-  .carousel-item .container {
-    height: 200px;
-    padding-top: 20px; }
+.carousel-item .container {
+  height: 200px;
+  padding-top: 20px; }
 
 .flex-item {
   margin-top: 20px;
   color: #ffffff; }
-  .flex-item .title {
-    padding-bottom: 10px; }
+.flex-item .title {
+  padding-bottom: 10px; }
 
 .carousel-image-1 {
   /*background: url("../img/image1.jpg");*/
@@ -179,77 +214,9 @@ body {
   height: 100%;
   position: relative; }
 
-table {
-  border-spacing: 1px;
-  border-collapse: collapse;
-  background: white;
-  border-radius: 6px;
-  overflow: hidden;
-  max-width: 800px;
-  width: 100%;
-  margin: 0 auto;
-  position: relative; }
+.table-price{
 
-table * {
-  position: relative; }
-
-table td, table th {
-  padding-left: 8px; }
-
-table thead tr {
-  height: 60px;
-  background: #1d2124;
-  font-size: 16px; }
-
-table tbody tr {
-  height: 50px;
-  border-bottom: 1px solid #E3F1D5; }
-
-table tbody tr:last-child {
-  border: 0; }
-
-table td, table th {
-  text-align: center; }
-
-table td.l, table th.l {
-  text-align: center; }
-
-table td.c, table th.c {
-  text-align: center; }
-
-table td.r, table th.r {
-  text-align: center; }
-
-@media screen and (max-width: 35.5em) {
-  table {
-    display: block; }
-  table > *, table tr, table td, table th {
-    display: block; }
-  table thead {
-    display: none; }
-  table tbody tr {
-    height: auto;
-    padding: 8px 0; }
-  table tbody tr td {
-    padding-left: 45%;
-    margin-bottom: 12px; }
-  table tbody tr td:last-child {
-    margin-bottom: 0; }
-  table tbody tr td:before {
-    position: absolute;
-    font-weight: 700;
-    width: 40%;
-    left: 10px;
-    top: 0; }
-  table tbody tr td:nth-child(1):before {
-    content: "DIN"; }
-  table tbody tr td:nth-child(2):before {
-    content: "DIN سیمبل"; }
-  table tbody tr td:nth-child(3):before {
-    content: "نام مصطلح در بازار ایران"; }
-  table tbody tr td:nth-child(4):before {
-    content: "کاربرد"; } }
-
+}
 #posts a {
   font-weight: 300; }
 
@@ -273,7 +240,9 @@ blockquote {
 .card-content {
   background: #ffffff;
   border: 4px;
-  box-shadow: 0 10px 7px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.05), 0 2px 10px 0 rgba(0, 0, 0, 0.12)
+
+
 }
 
 
@@ -323,14 +292,14 @@ blockquote {
   padding: 1.01rem;
   text-align: end;
   font-weight: 300; }
-  .card-desc .card-main-content {
-    font-family: Vazir;
-    padding-top: 2px;
-    max-height: 70px;
-    min-height: 65px;
-    overflow-y: hidden;
-    font-weight: 300;
-    color: #555; }
+.card-desc .card-main-content {
+  font-family: Vazir;
+  padding-top: 2px;
+  max-height: 70px;
+  min-height: 65px;
+  overflow-y: hidden;
+  font-weight: 300;
+  color: #555; }
 
 .card-desc h3 {
   color: #000000;
@@ -342,10 +311,10 @@ blockquote {
 
 #calculator {
   min-height: 500px; }
-  #calculator label {
-    font-family: Vazir;
-    font-weight: 300;
-    font-size: 1.1rem; }
+#calculator label {
+  font-family: Vazir;
+  font-weight: 300;
+  font-size: 1.1rem; }
 
 .card-desc p {
   color: #747373;
@@ -380,7 +349,7 @@ blockquote {
   color: #fff; }
 
 .btn-card:hover {
-  background: #1b1e21; }
+  background: #e22e1e; }
 
 input[id="search-button"] {
   width: 290px;
@@ -419,7 +388,9 @@ a.btn-card {
   text-decoration: none;
   background-color: #c1190b;
   font-size: 0.9rem;
-  color: #fff; }
+  color: #fff;
+  border-radius: 0.25rem;
+}
 
 /* End card section */
 hr {
@@ -437,24 +408,24 @@ span a:hover {
   border-radius: .25rem;
   padding-right: 3rem !important;
   padding-left: 3rem !important; }
-  .container-news li:hover {
-    background-color: #e3dcdd; }
+.container-news li:hover {
+  background-color: #e3dcdd; }
 
 .container-content {
   text-align: end;
   background-color: #fff;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.3);
   border-radius: .25rem; }
-  .container-content p {
-    text-align: end;
-    font-family: Vazir;
-    font-weight: 300;
-    color: #1b1e21;
-    text-align: right;
-    direction: rtl !important; }
+.container-content p {
+  text-align: end;
+  font-family: Vazir;
+  font-weight: 300;
+  color: #1b1e21;
+  text-align: right;
+  direction: rtl !important; }
 
 .nav-list a {
-  transition: background .1s;
+
   border-bottom: 1px solid #ededde;
   padding: 8px 0;
   display: block;

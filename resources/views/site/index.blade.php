@@ -99,49 +99,49 @@
         </div>
     </section>
 
-
-
-
-
-
-
     <!-- PRICES TABLE -->
-    <section id="prices">
+    <section id="prices" class="p-1">
         <div class="row ">
             <div class="col-md-4 ml-auto mr-auto text-center p-3">
                 <h1 class="text-white" style="font-weight: 300;"> بخشی از کالاهای عرضه شده </h1>
             </div>
         </div>
-        <div class="container-fluid mb-5">
-            <table class="table-striped">
-                <thead class="text-white">
-                <tr>
-                    <th style="background: #82804b">کد</th>
-                    <th style="background: #57415b">نماد</th>
-                    <th style="background: #2b5833">نام مصطلح در بازار ایران</th>
-                    <th style="background: #0a405a">کاربرد</th>
-                </tr>
-                <thead>
-                <tbody>
+        <div class="col-12 col-xl-8 m-auto">
+            <div class="card" style="background-color: #f5bbbb">
+                <div class="table-responsive ">
+                    <table class="table table-striped table-bordered">
+                        <thead class="text-white text-center">
+                        <tr>
+                            <th style="background: #82804b">کد</th>
+                            <th style="background: #57415b">نماد</th>
+                            <th style="background: #2b5833;min-width:100px">نام مصطلح </th>
+                            <th style="background: #0a405a;min-width:100px">کاربرد</th>
+                        </tr>
+                        <thead>
+                        <tbody class="text-center">
 
-                @foreach($products as $product)
-                    <tr>
-                        <td style="background: #d0ce7f">{{$product->din}}</td>
-                        <td style="background: #a380a7">{{$product->din_symbol}}</td>
-                        <td style="background: #6db77a">{{$product->name}}</td>
-                        <td style="background: #0b87b7">{{$product->usage}}</td>
+                        @foreach($products as $product)
+                            <tr>
+                                <td style="background: #d0ce7f">{{$product->din}}</td>
+                                <td style="background: #a380a7">{{$product->din_symbol}}</td>
+                                <td style="background: #6db77a">{{$product->name}}</td>
+                                <td style="background: #0b87b7">{{$product->usage}}</td>
 
-                    </tr>
-                @endforeach
+                            </tr>
+                        @endforeach
 
 
-                </tbody>
-            </table>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
+
+
         <div class="d-flex flex-row ">
             <a href="#location" id="fab" class="btn btn-success btn-lg ml-5 example-1" style="text-align: center;vertical-align: center;position: fixed;bottom: 0;z-index: 9000;margin-bottom: 5%;"><span class="fa fa-phone pt-2" id="logo"></span></a>
         </div>
-        <div class="d-flex flex-row ml-5 mb-3">
+        <div class="d-flex flex-row ml-3 ml-xl-5 mb-3 mt-2">
             <a href="{{route('products')}}" class="btn btn-lg text-white bg-light text-dark " style=" font-weight: 300"> همه کالا ها </a>
         </div>
     </section>
@@ -153,11 +153,11 @@
                 <h1 class="text-dark" style="font-weight: 500;"> آخرین اخبار و مطالب  </h1>
             </div>
         </div>
-        <div class="container">
+        <div class="container" >
             <div class="row mb-5">
 
                 @foreach($posts as $post)
-                    <div class="col-md-4">
+                    <div class="col-md-4 col-sm-6 m-auto text-center">
                         <div class="card-content my-3">
                             <div class="card-img">
                                 <img src="{{$post->image_path}}" alt="" class="">
@@ -184,7 +184,7 @@
 
     <!--LOCATION SECTION -->
     <section id="location">
-        <div class="container">
+        <div class="container-fluid p-5">
             <div class="row ">
                 <div class=" col-md-4  ml-auto mr-auto text-center py-5">
 
@@ -193,7 +193,7 @@
             </div>
             <div class="row">
                 <div class="col-md-5 pl-5 pb-3">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d785.3364617462274!2d46.228920829221956!3d38.06232605463805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDAzJzQ0LjQiTiA0NsKwMTMnNDYuMSJF!5e0!3m2!1sen!2s!4v1548230745574" width="450" height="400" frameborder="1" style=" border-radius:15px;border:#c1190b " allowfullscreen id="map"></iframe>
+                    <iframe class="w-100 h-100" style="min-height:250px" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d785.3364617462274!2d46.228920829221956!3d38.06232605463805!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzjCsDAzJzQ0LjQiTiA0NsKwMTMnNDYuMSJF!5e0!3m2!1sen!2s!4v1548230745574"  frameborder="1" style=" border-radius:15px;border:#c1190b " allowfullscreen id="map"></iframe>
 
                 </div>
                 <div class="col-md-7 text-white" style="direction: rtl !important; text-align: start" id="address">
@@ -218,6 +218,7 @@
             </div>
             <!--<div id="googleMap" style="width:100%;height:400px;"></div>-->
         </div>
+
     </section>
 
     @include('include.footer')
@@ -254,9 +255,7 @@
 
     if (window.innerWidth <= 800 && window.innerHeight <= 600){
       console.log("this is mobile screen")
-      var phone = {{$phone}} + "";
-      phone = phone.replace("-", "");
-      document.getElementById("fab").setAttribute('href', "tel:" + phone);
+      document.getElementById("fab").setAttribute('href', "tel:{{str_replace('-', '', $phone)}}");
       document.getElementById("logo").classList.remove("fa-map-marker");
       document.getElementById("logo").classList.add("fa-phone");
       document.getElementById("map").style.width = "230px";
