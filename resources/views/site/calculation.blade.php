@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    @include('include.head')
+    @include('include.head1', ['title' => 'محاسبه وزن مواد فولادی'])
 
 </head>
 <body>

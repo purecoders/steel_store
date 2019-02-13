@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   @include('include.head')
+   @include('include.head1', ['title' => $post1->title])
 
 </head>
 <body class="bg-light" style="overflow-x: hidden">
