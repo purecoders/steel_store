@@ -96,8 +96,9 @@
                         </a>
                     </td>
                     <td>
-                        <a href="{{route('admin-post-remove', $post->id)}}">
-                            <button class="btn bg-danger text-white"> حذف</button>
+                        <a>
+                            {{--<button onclick="removePost({{route('admin-post-remove', $post->id)}})" class="btn bg-danger text-white"> حذف</button>--}}
+                            <button onclick="removePost({{$post->id}})" class="btn bg-danger text-white"> حذف</button>
                         </a>
                     </td>
 
@@ -131,5 +132,12 @@
 
 
 @include('include.scripts')
+<script>
+  function removePost(id){
+    if (confirm("َآیا میخواهید این پست را حذف کنید؟")) {
+      window.location.href = "/admin-post-remove/" + id.toString();
+    }
+  }
+</script>
 </body>
 </html>

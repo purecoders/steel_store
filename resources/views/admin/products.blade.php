@@ -93,8 +93,8 @@
                     <a href="{{route('admin-product-edit-page', $product->id)}}">
                         <button class="btn bg-success  text-white" type="button" > ویرایش</button>
                     </a>
-                    <a href="{{route('admin-product-remove', $product->id)}}">
-                        <button class="btn bg-danger text-white" type="button" data-toggle="modal" > حذف</button>
+                    <a>
+                        <button onclick="removeProduct({{$product->id}})" class="btn bg-danger text-white" type="button" data-toggle="modal" > حذف</button>
                     </a>
                 </td>
 
@@ -134,6 +134,13 @@
 </div>
 
 
+<script>
+  function removeProduct(id){
+    if (confirm("َآیا میخواهید این کالا را حذف کنید؟")) {
+      window.location.href = "/admin-product-remove/" + id.toString();
+    }
+  }
+</script>
 
 @include('include.scripts')
 </body>
